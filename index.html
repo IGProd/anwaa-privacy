@@ -1,205 +1,252 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anwaa — Privacy Policy</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=IBM+Plex+Mono:wght@400&display=swap">
+<title>أنواء — مواقيت الصلاة والأذان والقبلة والطقس</title>
+<meta name="description" content="أنواء يجمع مواقيت الصلاة والأذان والقبلة والطقس في تطبيق أندرويد واحد. يعمل بدون إنترنت، بلا إعلانات ولا حسابات.">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap">
 <style>
   :root{
-    --ground:#F4F6FB; --card:#FFFFFF; --line:#DCE2EF;
-    --ink:#1B2036; --ink-soft:#5A6484; --ink-faint:#8A93AC;
-    --accent:#4A6BA8; --code-bg:#EEF1F8; --code-ink:#2E335A;
+    --sky-1:#8290AE; --sky-2:#4A6BA8; --sky-3:#2E335A; --night:#1C1B33;
+    --sun:#F0B95A;
+    --ground:#F5F7FC; --card:#FFFFFF; --line:#DDE3F0;
+    --ink:#191E33; --ink-soft:#59637F; --ink-faint:#8B94AD;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ground:#131629; --card:#1B2038; --line:#2C3355;
-      --ink:#E8ECF8; --ink-soft:#A8B2CE; --ink-faint:#78829F;
-      --accent:#94AEE0; --code-bg:#141930; --code-ink:#BCC8EC;
+      --ground:#101326; --card:#1A1F36; --line:#2A3152;
+      --ink:#EAEEF9; --ink-soft:#A6B0CD; --ink-faint:#767F9C;
+      --sun:#F5C86B;
     }
   }
   :root[data-theme="dark"]{
-    --ground:#131629; --card:#1B2038; --line:#2C3355;
-    --ink:#E8ECF8; --ink-soft:#A8B2CE; --ink-faint:#78829F;
-    --accent:#94AEE0; --code-bg:#141930; --code-ink:#BCC8EC;
+    --ground:#101326; --card:#1A1F36; --line:#2A3152;
+    --ink:#EAEEF9; --ink-soft:#A6B0CD; --ink-faint:#767F9C;
+    --sun:#F5C86B;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
   body{
     margin:0; background:var(--ground); color:var(--ink);
     font-family:"Cairo",system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:16px; line-height:1.75;
+    font-size:16px; line-height:1.8; -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:740px; margin:0 auto; padding:56px 24px 96px}
-  header{padding-bottom:24px; margin-bottom:36px; border-bottom:2px solid var(--line)}
-  .eyebrow{
-    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--ink-faint); margin-bottom:8px;
+  .wrap{max-width:1000px; margin:0 auto; padding:0 24px}
+
+  /* ---- hero: the sky the app is made of ---- */
+  .hero{
+    position:relative; overflow:hidden; color:#fff;
+    background:
+      radial-gradient(120% 90% at 78% -10%, rgba(240,185,90,.34), transparent 58%),
+      linear-gradient(170deg, var(--sky-2) 0%, var(--sky-1) 42%, var(--sky-3) 100%);
   }
-  h1{margin:0 0 8px; font-size:clamp(28px,5vw,40px); font-weight:800; line-height:1.25}
-  .updated{margin:0; color:var(--ink-faint); font-size:14px}
-  h2{margin:38px 0 12px; font-size:20px; font-weight:800; line-height:1.35}
-  p{margin:0 0 14px; color:var(--ink-soft)}
-  p.lead{color:var(--ink); font-size:17px}
-  strong{color:var(--ink); font-weight:600}
-  ul{margin:0 0 14px; padding-left:22px; color:var(--ink-soft)}
-  li{margin-bottom:8px}
-  a{color:var(--accent)}
-  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
-  table{width:100%; border-collapse:collapse; margin:0 0 16px; font-size:15px}
-  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line);
-        vertical-align:top}
-  th{color:var(--ink-faint); font-weight:600; font-size:12.5px;
-     letter-spacing:.04em; text-transform:uppercase}
-  td:first-child{font-family:"IBM Plex Mono",monospace; font-size:13px;
-     color:var(--accent); white-space:nowrap}
-  .scroll{overflow-x:auto}
-  .box{
-    background:var(--card); border:1px solid var(--line); border-radius:14px;
-    padding:20px 22px; margin:0 0 16px;
+  .hero .wrap{
+    padding-top:76px; padding-bottom:76px;
+    display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;
   }
-  code{
-    font-family:"IBM Plex Mono",monospace; font-size:.88em;
-    background:var(--code-bg); color:var(--code-ink); padding:2px 6px; border-radius:5px;
+  .mark{width:76px; height:76px; border-radius:20px; display:block; margin-bottom:22px}
+  .hero h1{
+    margin:0 0 14px; font-size:clamp(34px,5.6vw,54px); font-weight:800;
+    line-height:1.22; text-wrap:balance; letter-spacing:-.01em;
   }
+  .hero p{margin:0 0 10px; font-size:19px; color:rgba(255,255,255,.9); max-width:34ch}
+  .hero p.en{
+    font-size:15px; color:rgba(255,255,255,.66); direction:ltr; text-align:right;
+    margin-bottom:26px;
+  }
+  .badges{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0}
+  .badges li{
+    font-size:13.5px; padding:6px 14px; border-radius:999px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.24);
+  }
+  .shots{display:flex; gap:16px; justify-content:center}
+  .shots img{
+    width:min(46%,210px); height:auto; border-radius:20px; display:block;
+    border:1px solid rgba(255,255,255,.32);
+    box-shadow:0 26px 60px rgba(10,16,40,.42);
+  }
+  .shots img:first-child{transform:rotate(-4deg) translateY(10px)}
+  .shots img:last-child{transform:rotate(4deg)}
+
+  /* ---- features ---- */
+  section{padding:72px 0}
+  h2{
+    margin:0 0 8px; font-size:clamp(24px,3.6vw,32px); font-weight:800;
+    line-height:1.3; text-wrap:balance;
+  }
+  .sub{margin:0 0 40px; color:var(--ink-soft); font-size:17px; max-width:52ch}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px;
+    padding:26px 24px;
+  }
+  .card h3{margin:0 0 8px; font-size:18px; font-weight:800; line-height:1.4}
+  .card p{margin:0; color:var(--ink-soft); font-size:15.5px}
+  .card .num{
+    display:inline-block; font-size:30px; font-weight:800; line-height:1;
+    color:var(--sky-2); margin-bottom:10px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .card .num{color:var(--sun)}
+  }
+  :root[data-theme="dark"] .card .num{color:var(--sun)}
+
+  /* ---- gallery ---- */
+  .gallery{
+    display:flex; gap:18px; overflow-x:auto; padding:4px 0 18px;
+    scroll-snap-type:x mandatory;
+  }
+  .gallery figure{margin:0; flex:0 0 auto; scroll-snap-align:center; width:230px}
+  .gallery img{
+    width:100%; height:auto; border-radius:18px; display:block;
+    border:1px solid var(--line); box-shadow:0 14px 34px rgba(16,22,48,.14);
+  }
+  .gallery figcaption{
+    margin-top:12px; font-size:14.5px; color:var(--ink-soft); text-align:center;
+  }
+
+  /* ---- footer ---- */
   footer{
-    margin-top:48px; padding-top:22px; border-top:1px solid var(--line);
-    color:var(--ink-faint); font-size:14px;
+    background:var(--night); color:rgba(255,255,255,.72); padding:44px 0;
   }
-  @media (max-width:560px){ .wrap{padding:36px 18px 72px} }
+  footer .wrap{
+    display:flex; flex-wrap:wrap; gap:18px 28px;
+    align-items:center; justify-content:space-between;
+  }
+  footer a{color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.34)}
+  footer a:hover{border-bottom-color:#fff}
+  footer a:focus-visible{outline:2px solid var(--sun); outline-offset:3px; border-radius:2px}
+  .links{display:flex; gap:22px; flex-wrap:wrap}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr; padding-top:56px; padding-bottom:56px}
+    .grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr}
+    .hero p.en{text-align:right}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header>
-  <div class="eyebrow">Anwaa · Prayer Times &amp; Athan</div>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated 30 August 2026</p>
-</header>
-
-<p class="lead">
-  Anwaa has no server. There is no account to create, nothing to log in to, and no
-  copy of your data anywhere but on your own phone.
-</p>
-
-<h2>What stays on your phone</h2>
-<p>
-  Everything the app remembers — your city, your calculation method, which adhan you
-  chose, your reminders — is written to the app's own storage on the device. It is
-  never uploaded. Uninstalling the app deletes all of it.
-</p>
-
-<h2>Location</h2>
-<p>
-  If you allow it, Anwaa reads your device's location to work out your prayer times and
-  the direction of the Qibla. That calculation happens <strong>on the phone</strong>,
-  with no network involved.
-</p>
-<p>
-  Location is <strong>optional</strong>. You can search for a city by name instead and
-  never grant the permission at all.
-</p>
-
-<h2>What is sent, and to whom</h2>
-<p>
-  Anwaa contacts these services directly from your phone. No account, no advertising ID
-  and no device identifier is attached to any of these requests.
-</p>
-<div class="scroll">
-<table>
-  <tr><th>Service</th><th>What it receives</th><th>Why</th></tr>
-  <tr>
-    <td>api.open-meteo.com</td>
-    <td>Coordinates of the city being shown</td>
-    <td>Current weather and forecast</td>
-  </tr>
-  <tr>
-    <td>geocoding-api.open-meteo.com</td>
-    <td>The city name you type</td>
-    <td>Finding a city to add</td>
-  </tr>
-  <tr>
-    <td>api.bigdatacloud.net</td>
-    <td>Coordinates</td>
-    <td>Turning a location into a place name</td>
-  </tr>
-  <tr>
-    <td>nominatim.openstreetmap.org</td>
-    <td>Coordinates</td>
-    <td>The same, when the above is unavailable</td>
-  </tr>
-  <tr>
-    <td>api.aladhan.com</td>
-    <td>Coordinates and a calculation method</td>
-    <td>Cross-checking prayer times</td>
-  </tr>
-</table>
-</div>
-<p>
-  Each of these has its own privacy policy, and none of them is given anything that
-  identifies you as a person.
-</p>
-
-<h2>Google Play services</h2>
-<ul>
-  <li>
-    <strong>Location services</strong> — the app asks Google Play services for a
-    position fix. The fix is returned to the app and used on the device.
-  </li>
-  <li>
-    <strong>In-app updates and the rating prompt</strong> — only on installs that came
-    from Google Play. These are Google's own components and Anwaa sends them nothing
-    about you.
-  </li>
-</ul>
-
-<h2>What Anwaa does not do</h2>
-<ul>
-  <li>No advertising, and no advertising SDK in the app</li>
-  <li>No analytics, crash reporting or usage tracking</li>
-  <li>No accounts, sign-in, email address or phone number</li>
-  <li>No contacts, photos, files, microphone or camera</li>
-  <li>No selling or sharing of anything with anyone</li>
-</ul>
-
-<h2>Permissions, and why each one exists</h2>
-<div class="scroll">
-<table>
-  <tr><th>Permission</th><th>What it is for</th></tr>
-  <tr><td>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td>
-      <td>Prayer times and Qibla for where you are. Optional.</td></tr>
-  <tr><td>POST_NOTIFICATIONS</td><td>The athan and the reminder before it</td></tr>
-  <tr><td>SCHEDULE_EXACT_ALARM</td><td>Sounding the athan at the exact minute</td></tr>
-  <tr><td>FOREGROUND_SERVICE</td><td>Playing the adhan through to the end</td></tr>
-  <tr><td>VIBRATE</td><td>A short buzz when the compass finds the Qibla</td></tr>
-  <tr><td>INTERNET</td><td>Weather and city names only</td></tr>
-</table>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <img class="mark" src="icon.png" alt="أنواء">
+      <h1>مواقيت الصلاة والأذان في تطبيق هادئ</h1>
+      <p>الصلاة القادمة، الأذان في وقته، اتجاه القبلة، والطقس — في مكان واحد.</p>
+      <p class="en">Prayer times, athan, qibla and weather for Android.</p>
+      <ul class="badges">
+        <li>يعمل بدون إنترنت</li>
+        <li>بلا إعلانات</li>
+        <li>بلا حسابات</li>
+        <li>عربية · English · Français</li>
+      </ul>
+    </div>
+    <div class="shots">
+      <img src="shots/01_home.jpg" alt="الشاشة الرئيسية: الصلاة القادمة والعد التنازلي والطقس" loading="lazy">
+      <img src="shots/05_athan.jpg" alt="شاشة الأذان بملء الشاشة فوق صورة مسجد" loading="lazy">
+    </div>
+  </div>
 </div>
 
-<h2>Children</h2>
-<p>
-  Anwaa is not directed at children and collects nothing that could identify anyone,
-  of any age.
-</p>
+<section>
+  <div class="wrap">
+    <h2>ما الذي يفعله</h2>
+    <p class="sub">
+      كل شيء محسوب على الهاتف نفسه. لا يحتاج اتصالاً ليعرف متى تصلي.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <span class="num">25</span>
+        <h3>طريقة حساب</h3>
+        <p>
+          رابطة العالم الإسلامي، أم القرى، الهيئة المصرية، ديانت، كراتشي وغيرها —
+          مع مذهب العصر وتعديل يدوي لكل صلاة بالدقيقة.
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">15</span>
+        <h3>أذاناً مسجّلاً</h3>
+        <p>
+          المدينة، مكة، الأقصى، مصر، المنشاوي، عبد الباسط وغيرهم — أو ملف صوتي
+          من هاتفك أنت.
+        </p>
+      </div>
+      <div class="card">
+        <span class="num">7</span>
+        <h3>أيام من الطقس</h3>
+        <p>
+          درجة الحرارة الآن، توقّعات بالساعة، وسبعة أيام قادمة — إلى جانب مواقيت
+          الصلاة لا في تطبيق منفصل.
+        </p>
+      </div>
+      <div class="card">
+        <h3>يعمل والتطبيق مغلق</h3>
+        <p>
+          الأذان يُرفع في وقته بعد إغلاق التطبيق ومع الشاشة المقفلة، وتبويب
+          الموثوقية يشرح إعدادات هاتفك خطوة بخطوة.
+        </p>
+      </div>
+      <div class="card">
+        <h3>القبلة</h3>
+        <p>
+          بوصلة تشير إلى الكعبة مع المسافة بالكيلومترات، وهزّة خفيفة عند ضبط
+          الاتجاه فتعرف دون أن تنظر.
+        </p>
+      </div>
+      <div class="card">
+        <h3>ودجت للشاشة الرئيسية</h3>
+        <p>
+          الصلاة القادمة والوقت المتبقي لها دون فتح أي شيء، بخمسة أشكال مختلفة.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>Changes</h2>
-<p>
-  If this policy changes, the date at the top changes with it and the new version
-  appears at this address.
-</p>
-
-<h2>Contact</h2>
-<div class="box">
-  <p style="margin:0">
-    Questions about this policy, or about anything the app does:<br>
-    <a href="mailto:apps@igprod.net">apps@igprod.net</a>
-  </p>
-</div>
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>من داخل التطبيق</h2>
+    <p class="sub">لقطات حقيقية، بلا تجميل.</p>
+    <div class="gallery">
+      <figure>
+        <img src="shots/01_home.jpg" alt="الشاشة الرئيسية" loading="lazy">
+        <figcaption>الصلاة القادمة والطقس</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/10_prayer_makkah.jpg" alt="قائمة أوقات الصلاة" loading="lazy">
+        <figcaption>أوقات اليوم كاملة</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/05_athan.jpg" alt="شاشة الأذان" loading="lazy">
+        <figcaption>شاشة الأذان</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/06_qibla.jpg" alt="بوصلة القبلة" loading="lazy">
+        <figcaption>اتجاه القبلة</figcaption>
+      </figure>
+      <figure>
+        <img src="shots/11_weather_makkah.jpg" alt="تفاصيل الطقس" loading="lazy">
+        <figcaption>الطقس بالساعة وبالأيام</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <footer>
-  Anwaa for Android · published by IGProd
+  <div class="wrap">
+    <div>أنواء · من إنتاج IGProd</div>
+    <div class="links">
+      <a href="privacy/">سياسة الخصوصية</a>
+      <a href="mailto:apps@igprod.net">apps@igprod.net</a>
+    </div>
+  </div>
 </footer>
 
-</div>
 </body>
 </html>

@@ -1,5 +1,8 @@
-# Anwaa — Privacy Policy
+# Anwaa
 
-The policy served at https://igprod.github.io/anwaa-privacy/
+Site for the Anwaa Android app — prayer times, athan, qibla and weather.
 
-This repository holds one page and nothing else. The app itself is not here.
+- https://igprod.github.io/anwaa-privacy/ — the app
+- https://igprod.github.io/anwaa-privacy/privacy/ — privacy policy
+
+The app source is not in this repository.
