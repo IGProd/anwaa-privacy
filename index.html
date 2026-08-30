@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anwaa — Privacy Policy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  :root{
+    --ground:#F4F6FB; --card:#FFFFFF; --line:#DCE2EF;
+    --ink:#1B2036; --ink-soft:#5A6484; --ink-faint:#8A93AC;
+    --accent:#4A6BA8; --code-bg:#EEF1F8; --code-ink:#2E335A;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#131629; --card:#1B2038; --line:#2C3355;
+      --ink:#E8ECF8; --ink-soft:#A8B2CE; --ink-faint:#78829F;
+      --accent:#94AEE0; --code-bg:#141930; --code-ink:#BCC8EC;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#131629; --card:#1B2038; --line:#2C3355;
+    --ink:#E8ECF8; --ink-soft:#A8B2CE; --ink-faint:#78829F;
+    --accent:#94AEE0; --code-bg:#141930; --code-ink:#BCC8EC;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Cairo",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.75;
+  }
+  .wrap{max-width:740px; margin:0 auto; padding:56px 24px 96px}
+  header{padding-bottom:24px; margin-bottom:36px; border-bottom:2px solid var(--line)}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-faint); margin-bottom:8px;
+  }
+  h1{margin:0 0 8px; font-size:clamp(28px,5vw,40px); font-weight:800; line-height:1.25}
+  .updated{margin:0; color:var(--ink-faint); font-size:14px}
+  h2{margin:38px 0 12px; font-size:20px; font-weight:800; line-height:1.35}
+  p{margin:0 0 14px; color:var(--ink-soft)}
+  p.lead{color:var(--ink); font-size:17px}
+  strong{color:var(--ink); font-weight:600}
+  ul{margin:0 0 14px; padding-left:22px; color:var(--ink-soft)}
+  li{margin-bottom:8px}
+  a{color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+  table{width:100%; border-collapse:collapse; margin:0 0 16px; font-size:15px}
+  th,td{padding:10px 12px; text-align:left; border-bottom:1px solid var(--line);
+        vertical-align:top}
+  th{color:var(--ink-faint); font-weight:600; font-size:12.5px;
+     letter-spacing:.04em; text-transform:uppercase}
+  td:first-child{font-family:"IBM Plex Mono",monospace; font-size:13px;
+     color:var(--accent); white-space:nowrap}
+  .scroll{overflow-x:auto}
+  .box{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin:0 0 16px;
+  }
+  code{
+    font-family:"IBM Plex Mono",monospace; font-size:.88em;
+    background:var(--code-bg); color:var(--code-ink); padding:2px 6px; border-radius:5px;
+  }
+  footer{
+    margin-top:48px; padding-top:22px; border-top:1px solid var(--line);
+    color:var(--ink-faint); font-size:14px;
+  }
+  @media (max-width:560px){ .wrap{padding:36px 18px 72px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Anwaa · Prayer Times &amp; Athan</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated 30 August 2026</p>
+</header>
+
+<p class="lead">
+  Anwaa has no server. There is no account to create, nothing to log in to, and no
+  copy of your data anywhere but on your own phone.
+</p>
+
+<h2>What stays on your phone</h2>
+<p>
+  Everything the app remembers — your city, your calculation method, which adhan you
+  chose, your reminders — is written to the app's own storage on the device. It is
+  never uploaded. Uninstalling the app deletes all of it.
+</p>
+
+<h2>Location</h2>
+<p>
+  If you allow it, Anwaa reads your device's location to work out your prayer times and
+  the direction of the Qibla. That calculation happens <strong>on the phone</strong>,
+  with no network involved.
+</p>
+<p>
+  Location is <strong>optional</strong>. You can search for a city by name instead and
+  never grant the permission at all.
+</p>
+
+<h2>What is sent, and to whom</h2>
+<p>
+  Anwaa contacts these services directly from your phone. No account, no advertising ID
+  and no device identifier is attached to any of these requests.
+</p>
+<div class="scroll">
+<table>
+  <tr><th>Service</th><th>What it receives</th><th>Why</th></tr>
+  <tr>
+    <td>api.open-meteo.com</td>
+    <td>Coordinates of the city being shown</td>
+    <td>Current weather and forecast</td>
+  </tr>
+  <tr>
+    <td>geocoding-api.open-meteo.com</td>
+    <td>The city name you type</td>
+    <td>Finding a city to add</td>
+  </tr>
+  <tr>
+    <td>api.bigdatacloud.net</td>
+    <td>Coordinates</td>
+    <td>Turning a location into a place name</td>
+  </tr>
+  <tr>
+    <td>nominatim.openstreetmap.org</td>
+    <td>Coordinates</td>
+    <td>The same, when the above is unavailable</td>
+  </tr>
+  <tr>
+    <td>api.aladhan.com</td>
+    <td>Coordinates and a calculation method</td>
+    <td>Cross-checking prayer times</td>
+  </tr>
+</table>
+</div>
+<p>
+  Each of these has its own privacy policy, and none of them is given anything that
+  identifies you as a person.
+</p>
+
+<h2>Google Play services</h2>
+<ul>
+  <li>
+    <strong>Location services</strong> — the app asks Google Play services for a
+    position fix. The fix is returned to the app and used on the device.
+  </li>
+  <li>
+    <strong>In-app updates and the rating prompt</strong> — only on installs that came
+    from Google Play. These are Google's own components and Anwaa sends them nothing
+    about you.
+  </li>
+</ul>
+
+<h2>What Anwaa does not do</h2>
+<ul>
+  <li>No advertising, and no advertising SDK in the app</li>
+  <li>No analytics, crash reporting or usage tracking</li>
+  <li>No accounts, sign-in, email address or phone number</li>
+  <li>No contacts, photos, files, microphone or camera</li>
+  <li>No selling or sharing of anything with anyone</li>
+</ul>
+
+<h2>Permissions, and why each one exists</h2>
+<div class="scroll">
+<table>
+  <tr><th>Permission</th><th>What it is for</th></tr>
+  <tr><td>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td>
+      <td>Prayer times and Qibla for where you are. Optional.</td></tr>
+  <tr><td>POST_NOTIFICATIONS</td><td>The athan and the reminder before it</td></tr>
+  <tr><td>SCHEDULE_EXACT_ALARM</td><td>Sounding the athan at the exact minute</td></tr>
+  <tr><td>FOREGROUND_SERVICE</td><td>Playing the adhan through to the end</td></tr>
+  <tr><td>VIBRATE</td><td>A short buzz when the compass finds the Qibla</td></tr>
+  <tr><td>INTERNET</td><td>Weather and city names only</td></tr>
+</table>
+</div>
+
+<h2>Children</h2>
+<p>
+  Anwaa is not directed at children and collects nothing that could identify anyone,
+  of any age.
+</p>
+
+<h2>Changes</h2>
+<p>
+  If this policy changes, the date at the top changes with it and the new version
+  appears at this address.
+</p>
+
+<h2>Contact</h2>
+<div class="box">
+  <p style="margin:0">
+    Questions about this policy, or about anything the app does:<br>
+    <a href="mailto:yassine2217@gmail.com">yassine2217@gmail.com</a>
+  </p>
+</div>
+
+<footer>
+  Anwaa for Android · published by IGProd
+</footer>
+
+</div>
+</body>
+</html>
