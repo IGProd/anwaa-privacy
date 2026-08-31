@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anwaa — Changelog</title>
+<meta name="description" content="What changed in each release of Anwaa — prayer times, athan, qibla and weather for Android.">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#F5F7FC; --card:#FFFFFF; --line:#DDE3F0;
+    --ink:#191E33; --ink-soft:#59637F; --ink-faint:#8B94AD;
+    --accent:#4A6BA8; --chip:#EEF2FA; --fix:#1C7A57; --fix-bg:#E7F5EF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#101326; --card:#1A1F36; --line:#2A3152;
+      --ink:#EAEEF9; --ink-soft:#A6B0CD; --ink-faint:#767F9C;
+      --accent:#94AEE0; --chip:#1F2540; --fix:#6BD2A6; --fix-bg:#12291F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101326; --card:#1A1F36; --line:#2A3152;
+    --ink:#EAEEF9; --ink-soft:#A6B0CD; --ink-faint:#767F9C;
+    --accent:#94AEE0; --chip:#1F2540; --fix:#6BD2A6; --fix-bg:#12291F;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Cairo",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.75;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:52px 24px 88px}
+  header{padding-bottom:22px; margin-bottom:36px; border-bottom:2px solid var(--line)}
+  .back{
+    display:inline-block; font-size:14px; color:var(--accent);
+    text-decoration:none; margin-bottom:14px;
+  }
+  .back:hover{text-decoration:underline}
+  h1{margin:0 0 6px; font-size:clamp(30px,5vw,42px); font-weight:800; line-height:1.2}
+  .lede{margin:0; color:var(--ink-soft); max-width:60ch}
+
+  .release{margin-bottom:44px}
+  .rhead{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px}
+  .ver{
+    font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:500;
+    background:var(--chip); color:var(--accent);
+    padding:3px 10px; border-radius:7px;
+  }
+  h2{margin:0; font-size:22px; font-weight:800; line-height:1.3}
+  .date{color:var(--ink-faint); font-size:14px; font-family:"IBM Plex Mono",monospace}
+  .summary{margin:0 0 18px; color:var(--ink-soft)}
+
+  .items{display:flex; flex-direction:column; gap:14px}
+  .item{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:13px; padding:15px 17px;
+  }
+  .item h3{
+    margin:0 0 5px; font-size:16px; font-weight:600; line-height:1.45;
+    display:flex; align-items:center; gap:9px;
+  }
+  .tag{
+    flex:0 0 auto; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    font-weight:600; padding:2px 8px; border-radius:5px;
+    background:var(--fix-bg); color:var(--fix);
+  }
+  .item p{margin:0; color:var(--ink-soft); font-size:15px}
+  code{
+    font-family:"IBM Plex Mono",monospace; font-size:.86em;
+    background:var(--chip); color:var(--accent); padding:2px 6px; border-radius:5px;
+  }
+  footer{
+    margin-top:48px; padding-top:22px; border-top:1px solid var(--line);
+    color:var(--ink-faint); font-size:14px;
+  }
+  footer a{color:var(--accent)}
+  @media (max-width:560px){ .wrap{padding:34px 18px 68px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <a class="back" href="../">&larr; Anwaa</a>
+  <h1>Changelog</h1>
+  <p class="lede">
+    What changed in each release, and why. Written for anyone who wants to know what
+    was actually wrong, not only that something was fixed.
+  </p>
+</header>
+
+<section class="release">
+  <div class="rhead">
+    <span class="ver">1.0 (3)</span>
+    <h2>Eleven fixes, and the weather finally agrees with itself</h2>
+  </div>
+  <div class="date">31 August 2026</div>
+  <p class="summary">
+    Most of this release is one theme: two parts of the app describing the same weather
+    differently, or a value that was written but never read.
+  </p>
+
+  <div class="items">
+    <div class="item">
+      <h3><span class="tag">fix</span>The reminder before prayer now arrives on the minute</h3>
+      <p>
+        It asked the system for an exact alarm and the system wrote down an inexact one —
+        armed ten minutes out it came back with a seven-minute window, so the reminder
+        could land any time inside it, or not at all in Doze. It now uses the same
+        alarm-clock tier the adhan uses.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>The adhan no longer plays twice</h3>
+      <p>
+        The notification shown while the adhan plays sat on a channel whose own sound was
+        the adhan. On phones that honour that — Samsung does — you heard it twice, a
+        fraction of a second apart. That notification is silent now; the sounding channel
+        remains only for when playback is impossible.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>"Mainly clear" no longer draws a cloud</h3>
+      <p>
+        Weather code 1 was grouped with "partly cloudy" in the icon map, so the words said
+        one thing and the picture another.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>Fog at dawn stops looking like a sunrise</h3>
+      <p>
+        Near sunrise and sunset the background ignored the weather entirely. A clear sky
+        should not lose those two moments — a thunderstorm should not lose to them either.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>The home screen icon updates without leaving the screen</h3>
+      <p>
+        Image loading kept the first picture it ever drew, so the icon only changed after
+        the screen was rebuilt — which is what switching tabs and coming back does.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>The widget shows the real weather</h3>
+      <p>
+        The app had a function for handing the widget its icon, temperature and sky. It
+        was never called. The widget also only accepted a background whose name ended in
+        <code>.png</code>, and every sky in the app is a <code>.webp</code>.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>Widget countdown labels are translated</h3>
+      <p>
+        "in" and "remaining" were written into the layout in English and never replaced,
+        so an Arabic widget still read them in English.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>City cards no longer open as a sunny day</h3>
+      <p>
+        A card with no forecast yet fell back to weather code 0 — clear sky — so a list
+        opened as a row of suns and corrected itself one by one. Forecasts also load
+        together now instead of one after another.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>Switching city no longer keeps the last city's weather</h3>
+      <p>
+        Choosing Toronto could leave the previous city's sunny reading on screen under
+        Toronto's name until the new one arrived.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>Changing the calculation method updates every screen</h3>
+      <p>
+        The prayer page recalculated on each read; the home card read a stored value that
+        nothing refreshed. The same app disagreed with itself about when Asr was.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>City cards fit their text</h3>
+      <p>
+        In the two-column grid the high and low temperatures wrapped across three lines
+        and stretched the card. They are one line now.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="release">
+  <div class="rhead">
+    <span class="ver">1.0 (2)</span>
+    <h2>Google Play readiness</h2>
+  </div>
+  <div class="date">30 August 2026</div>
+  <p class="summary">
+    Store metadata, and the build settings Play's optimization report asks for.
+  </p>
+  <div class="items">
+    <div class="item">
+      <h3><span class="tag">fix</span>The adhan test played nothing</h3>
+      <p>
+        Sound names are written with hyphens and the files on disk use underscores, so the
+        test button built a path that could never resolve — and reported no error.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">fix</span>A custom adhan can be a file from your phone</h3>
+      <p>
+        The setting asked for a link to an mp3; it now opens the system file picker, and
+        keeps read access so the alarm can still open the file weeks later.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">new</span>The Qibla compass buzzes when you face the Kaaba</h3>
+      <p>
+        Through the vibrator rather than touch feedback, so it works with the phone's
+        touch-vibration setting switched off.
+      </p>
+    </div>
+    <div class="item">
+      <h3><span class="tag">perf</span>Smaller, faster builds</h3>
+      <p>
+        R8 was running with optimization disabled by the default configuration file.
+        Enabling it, along with repackaging and precise resource shrinking, cut the app
+        and sped up a cold start.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Anwaa · <a href="../">Home</a> · <a href="../privacy/">Privacy policy</a> ·
+  <a href="mailto:apps@igprod.net">apps@igprod.net</a>
+</footer>
+
+</div>
+</body>
+</html>
